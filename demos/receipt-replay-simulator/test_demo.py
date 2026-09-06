@@ -58,6 +58,19 @@ class AttemptDecisionTests(unittest.TestCase):
             AttemptDecision.SKIP_ALREADY_COMPLETED,
         )
 
+    def test_completed_effect_wins_across_every_attempt_boundary(self):
+        for boundary in AttemptBoundary:
+            with self.subTest(boundary=boundary):
+                attempt = ActionAttempt(
+                    "send-summary",
+                    boundary=boundary,
+                    effect_already_recorded=True,
+                )
+                self.assertEqual(
+                    decide_attempt(attempt),
+                    AttemptDecision.SKIP_ALREADY_COMPLETED,
+                )
+
 
 if __name__ == "__main__":
     unittest.main()
