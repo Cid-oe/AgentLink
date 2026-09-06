@@ -44,7 +44,7 @@ The goal is not to replace foundation models. The goal is to make them more usef
 
 The public repository contains deliberately bounded demonstrations, documentation and case studies rather than the production runtime.
 
-- **[Receipt Replay Simulator](./demos/receipt-replay-simulator/)** — conservative recovery for completed, not-started and uncertain actions
+- **[Receipt Replay Simulator](./demos/receipt-replay-simulator/)** — conservative recovery plus pre-attempt guards for completed effects, uncertain outcomes, positive auth gates and cooldowns
 - **[Site Surface Doctor proof](./PUBLIC_PROOF_SITE_SURFACE_DOCTOR.md)** — CI-backed public-surface checks
 - **[RAG Fleet Harness MVP case study](./CASE_STUDY_RAG_FLEET.md)** — isolated agent configuration, routing, validation, health reporting and automated tests
 - **[Architecture notes](./ARCHITECTURE.md)** — execution-layer design and boundaries
