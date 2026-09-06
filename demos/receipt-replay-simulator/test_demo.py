@@ -1,6 +1,15 @@
 import unittest
 
-from demo import ActionReceipt, ReceiptState, RecoveryDecision, decide_recovery
+from demo import (
+    ActionAttempt,
+    ActionReceipt,
+    AttemptBoundary,
+    AttemptDecision,
+    ReceiptState,
+    RecoveryDecision,
+    decide_attempt,
+    decide_recovery,
+)
 
 
 class RecoveryDecisionTests(unittest.TestCase):
@@ -20,6 +29,33 @@ class RecoveryDecisionTests(unittest.TestCase):
         self.assertEqual(
             decide_recovery(receipt),
             RecoveryDecision.RECONCILE_MANUALLY,
+        )
+
+
+class AttemptDecisionTests(unittest.TestCase):
+    def test_clear_boundary_can_execute(self):
+        attempt = ActionAttempt("publish-note")
+        self.assertEqual(decide_attempt(attempt), AttemptDecision.EXECUTE)
+
+    def test_positive_auth_gate_stops_without_guessing_credentials(self):
+        attempt = ActionAttempt(
+            "publish-social",
+            boundary=AttemptBoundary.POSITIVE_AUTH_GATE,
+        )
+        self.assertEqual(decide_attempt(attempt), AttemptDecision.STOP_FOR_AUTH)
+
+    def test_cooldown_defers_external_side_effect(self):
+        attempt = ActionAttempt(
+            "publish-again",
+            boundary=AttemptBoundary.COOLDOWN,
+        )
+        self.assertEqual(decide_attempt(attempt), AttemptDecision.DEFER_COOLDOWN)
+
+    def test_completed_effect_wins_over_clear_boundary(self):
+        attempt = ActionAttempt("send-summary", effect_already_recorded=True)
+        self.assertEqual(
+            decide_attempt(attempt),
+            AttemptDecision.SKIP_ALREADY_COMPLETED,
         )
 
 
