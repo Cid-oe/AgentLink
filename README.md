@@ -44,7 +44,7 @@ The goal is not to replace foundation models. The goal is to make them more usef
 
 The public repository contains deliberately bounded demonstrations, documentation and case studies rather than the production runtime.
 
-- **[Receipt Replay Simulator](./demos/receipt-replay-simulator/)** — conservative recovery plus pre-attempt guards for completed effects, uncertain outcomes, positive auth gates and cooldowns
+- **[Receipt Replay Simulator](./demos/receipt-replay-simulator/)** — MIT-licensed OSS demo with executable tests, conservative recovery, pre-attempt guards, and an external contribution path
 - **[Site Surface Doctor proof](./PUBLIC_PROOF_SITE_SURFACE_DOCTOR.md)** — CI-backed public-surface checks
 - **[RAG Fleet Harness MVP case study](./CASE_STUDY_RAG_FLEET.md)** — isolated agent configuration, routing, validation, health reporting and automated tests
 - **[Architecture notes](./ARCHITECTURE.md)** — execution-layer design and boundaries
@@ -52,6 +52,12 @@ The public repository contains deliberately bounded demonstrations, documentatio
 - **[Security boundary](./SECURITY.md)** — what is intentionally not exposed
 
 Public claims should be backed by implementation evidence, tests, receipts, or a reproducible demo. A tiny tool that can be regenerated from a few prompts is not treated as headline proof merely because it exists.
+
+### Open-source contribution surface
+
+The [Receipt Replay Simulator](./demos/receipt-replay-simulator/) is independently released under the MIT License. External testing, bug reports, documentation improvements, and narrow code contributions are welcome. Start with its [contribution guide](./demos/receipt-replay-simulator/CONTRIBUTING.md) or pick up a [`good first issue`](https://github.com/paper-daemon/AgentLink/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22).
+
+The private production core remains intentionally unpublished; contribution invitations apply only to explicitly licensed public surfaces.
 
 ## Current engineering directions
 
