@@ -81,6 +81,15 @@ The goal is not to replace foundation models or chat products. The goal is to ma
 
 Public claims should be backed by implementation evidence, tests, receipts, or a reproducible demo.
 
+## Related public tools
+
+A few independently published OSS tools explore reliability problems that also matter to long-running AgentLink execution:
+
+- **[Idempotency Receipt Ledger](https://github.com/paper-daemon/idempotency-receipt-ledger)** — durable `EXECUTE / SKIP / CONFLICT` decisions around external side effects
+- **[Retry Budget Lab](https://github.com/paper-daemon/retry-budget-lab)** — estimate request amplification, worst-case delay, and retry pressure before deploying a retry policy
+
+These repositories are separate MIT-licensed projects. They are useful public experiments around the same execution-reliability space and do not publish or mirror the private AgentLink production core.
+
 ## Reliability model
 
 A central rule is: **unknown is not the same as failed**.
