@@ -61,6 +61,16 @@ python3 -m unittest -v test_continuity_demo.py
 
 The repository-wide Python CI also discovers this test through `pytest`.
 
+## Contributing
+
+This directory is independently MIT licensed and intentionally open to narrow external contributions.
+
+Good areas include worker-handoff regressions, stale-owner scenarios, longer checkpoint chains, deterministic interruption/recovery cases, stronger replay-prevention assertions, and clearer timeline evidence.
+
+See **[CONTRIBUTING.md](./CONTRIBUTING.md)** or pick up a [`good first issue`](https://github.com/paper-daemon/AgentLink/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22).
+
+For a reproducible bug in this demo, use the repository's **Chat continuity demo bug** issue template.
+
 ## What this is not
 
 This demo does not claim that a Python JSON file is the production AgentLink runtime, and it does not emulate undocumented ChatGPT internals. It isolates a public contract that the full project is trying to provide across real chat turns, workers, devices, services and interruptions.
