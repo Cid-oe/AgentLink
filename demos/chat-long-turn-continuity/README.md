@@ -1,5 +1,7 @@
 # Chat Long-Turn Continuity Demo
 
+![Chat Long-Turn Continuity flow](./continuity-flow.svg)
+
 This is the public demo that most directly represents AgentLink's root goal:
 
 > turn an ordinary chat slot into a durable AI-agent execution slot that can keep useful work moving beyond one physical model turn.
