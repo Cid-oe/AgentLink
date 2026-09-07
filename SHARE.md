@@ -16,9 +16,17 @@ The intended experience is:
 
 That requires durable job/thread state, continuation across model-turn boundaries, real tool and device execution, bounded authority, receipts, worker coordination, and idempotent recovery.
 
-## Flagship public demo
+## Try it without installing anything
 
-The MIT-licensed [Chat Long-Turn Continuity Demo](./demos/chat-long-turn-continuity/) shows the core continuity idea directly.
+**Browser demo:** https://paper-daemon.github.io/agentlink-continuity/
+
+Start a chat job, cross multiple turns, record an external effect, deliberately interrupt the turn, reload the page, then resume from durable browser state. The final `effect_count` remains `1` because the resumed turn reconciles the existing receipt instead of replaying the effect.
+
+The browser demo is a visualization of the same public continuity contract. It is not the production AgentLink runtime.
+
+## Reproducible Python demo
+
+The MIT-licensed [Chat Long-Turn Continuity Demo](./demos/chat-long-turn-continuity/) provides the dependency-free code version.
 
 ```bash
 git clone https://github.com/paper-daemon/AgentLink.git
@@ -32,10 +40,11 @@ No credentials, external services, or third-party Python packages are required.
 
 ## Useful links
 
+- Browser demo: https://paper-daemon.github.io/agentlink-continuity/
 - Repository: https://github.com/paper-daemon/AgentLink
-- Flagship demo: https://github.com/paper-daemon/AgentLink/tree/main/demos/chat-long-turn-continuity
-- First scoped release: https://github.com/paper-daemon/AgentLink/releases/tag/receipt-replay-simulator-v0.1.0
-- Reliability primitive: https://github.com/paper-daemon/AgentLink/tree/main/demos/receipt-replay-simulator
+- Flagship Python demo: https://github.com/paper-daemon/AgentLink/tree/main/demos/chat-long-turn-continuity
+- Flagship release: https://github.com/paper-daemon/AgentLink/releases/tag/chat-long-turn-continuity-v0.1.0
+- Reliability primitive release: https://github.com/paper-daemon/AgentLink/releases/tag/receipt-replay-simulator-v0.1.0
 - Good first issues: https://github.com/paper-daemon/AgentLink/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22
 - External contributor example: https://github.com/paper-daemon/AgentLink/pull/20
 
@@ -55,25 +64,25 @@ I’m building AgentLink around a simple idea: a normal chat thread should be ab
 
 Chat models are good at reasoning and tool use, but real operational work often outlives one response. AgentLink is aimed at keeping that work moving across physical turns, interruptions, browser loss, devices, worker handoffs, and external services while preserving durable operational state outside any one model response.
 
-I just published a dependency-free MIT demo that shows the continuity contract directly. A bounded job moves across fresh processes, an external effect is deliberately interrupted after its receipt is written, and a later continuation resumes without replaying the effect.
+There is now a no-install browser demo where you can start a job, cross turns, interrupt after an external effect, reload the page, and resume without replaying that effect. The repo also contains the dependency-free MIT Python version with CI and a scoped v0.1.0 release.
 
-The repo has also received and merged an external contributor PR, and the first scoped public release is live.
+The project has already received and merged an external contributor PR.
 
 I’d especially value feedback from people working on agent runtimes, tool orchestration, long-horizon automation, or chat-native agents.
 
+Try it: https://paper-daemon.github.io/agentlink-continuity/
 Repo: https://github.com/paper-daemon/AgentLink
 
 ## Short social version
 
 Building AgentLink to turn an ordinary chat thread into a **long-running AI-agent execution slot**.
 
-The new public MIT demo shows a job surviving across fresh physical turns/processes, including an intentional interruption after an external effect. The next continuation resumes from durable state and does not replay the effect.
+I made a browser demo: start a job → cross turns → interrupt after an external effect → reload the page → resume from durable state. The effect is not replayed.
 
-Chat should be able to outlive one response.
+Try: https://paper-daemon.github.io/agentlink-continuity/
+GitHub: https://github.com/paper-daemon/AgentLink
 
-https://github.com/paper-daemon/AgentLink
-
-Feedback, failure cases, and stars are welcome if this is a problem you care about.
+Chat should outlive one response. Feedback, failure cases, and stars are welcome if this is a problem you care about.
 
 ## Sharing boundary
 
