@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Chat Long-Turn Continuity Demo</title>
+  <desc id="desc">A chat-originated job persists through durable state, multiple physical turns, an interruption, and a safe resume without replaying the external effect.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="1" stop-color="#171a2e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#67e8f9"/>
+      <stop offset="0.5" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#f0abfc"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="420" rx="28" fill="url(#bg)"/>
+  <text x="64" y="62" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="34" font-weight="700">One chat job. Multiple physical turns. One durable truth.</text>
+  <text x="64" y="96" fill="#94a3b8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18">The process may disappear. The job does not have to.</text>
+
+  <g font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" text-anchor="middle">
+    <g fill="#111827" stroke="#64748b" stroke-width="2">
+      <rect x="54" y="156" width="164" height="86" rx="18"/>
+      <rect x="278" y="156" width="164" height="86" rx="18"/>
+      <rect x="502" y="156" width="164" height="86" rx="18"/>
+      <rect x="726" y="156" width="164" height="86" rx="18"/>
+      <rect x="950" y="156" width="196" height="86" rx="18"/>
+    </g>
+    <g fill="#f8fafc" font-weight="700">
+      <text x="136" y="191">Ordinary chat</text>
+      <text x="360" y="191">Turn 1 / 2</text>
+      <text x="584" y="191">Turn 3</text>
+      <text x="808" y="191">Durable state</text>
+      <text x="1048" y="191">Turn 4 resumes</text>
+    </g>
+    <g fill="#94a3b8" font-size="14">
+      <text x="136" y="217">start bounded job</text>
+      <text x="360" y="217">checkpoint progress</text>
+      <text x="584" y="217">effect + interruption</text>
+      <text x="808" y="217">receipt survives</text>
+      <text x="1048" y="217">no duplicate effect</text>
+    </g>
+  </g>
+
+  <g stroke="url(#accent)" stroke-width="4" fill="none">
+    <path d="M218 199H278"/>
+    <path d="M442 199H502"/>
+    <path d="M666 199H726"/>
+    <path d="M890 199H950"/>
+  </g>
+  <g fill="#c4b5fd">
+    <path d="M270 191l12 8-12 8z"/>
+    <path d="M494 191l12 8-12 8z"/>
+    <path d="M718 191l12 8-12 8z"/>
+    <path d="M942 191l12 8-12 8z"/>
+  </g>
+
+  <g font-family="Inter,Segoe UI,Arial,sans-serif">
+    <rect x="486" y="286" width="196" height="58" rx="14" fill="#2a1420" stroke="#fb7185" stroke-width="2"/>
+    <text x="584" y="311" text-anchor="middle" fill="#fecdd3" font-size="15" font-weight="700">SIMULATED TURN LOSS</text>
+    <text x="584" y="331" text-anchor="middle" fill="#fda4af" font-size="13">after receipt, before completion</text>
+
+    <rect x="730" y="286" width="160" height="58" rx="14" fill="#12251f" stroke="#34d399" stroke-width="2"/>
+    <text x="810" y="311" text-anchor="middle" fill="#a7f3d0" font-size="15" font-weight="700">receipt found</text>
+    <text x="810" y="331" text-anchor="middle" fill="#6ee7b7" font-size="13">effect_count = 1</text>
+  </g>
+
+  <text x="64" y="380" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">Public dependency-free simulator · production AgentLink core remains private</text>
+</svg>
