@@ -1,0 +1,32 @@
+name: Chat long-turn continuity demo
+
+on:
+  push:
+    paths:
+      - 'demos/chat-long-turn-continuity/**'
+      - '.github/workflows/chat-long-turn-continuity.yml'
+  pull_request:
+    paths:
+      - 'demos/chat-long-turn-continuity/**'
+      - '.github/workflows/chat-long-turn-continuity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  continuity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run fresh-process continuity story
+        working-directory: demos/chat-long-turn-continuity
+        run: python3 run_demo.py
+      - name: Run continuity regression tests
+        working-directory: demos/chat-long-turn-continuity
+        run: python3 -m unittest -v test_continuity_demo.py
