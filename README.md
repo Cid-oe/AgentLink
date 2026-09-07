@@ -3,6 +3,7 @@
 ![AgentLink hero](./assets/agentlink-hero.svg)
 
 [![Full Python suite](https://github.com/paper-daemon/AgentLink/actions/workflows/full-python-suite.yml/badge.svg)](https://github.com/paper-daemon/AgentLink/actions/workflows/full-python-suite.yml)
+[![Chat long-turn continuity demo](https://github.com/paper-daemon/AgentLink/actions/workflows/chat-long-turn-continuity.yml/badge.svg)](https://github.com/paper-daemon/AgentLink/actions/workflows/chat-long-turn-continuity.yml)
 
 **Turn ordinary chat sessions into persistent, long-running AI agents.**
 
