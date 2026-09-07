@@ -8,6 +8,21 @@ AgentLink explores the execution layer between AI reasoning and real operational
 
 > This public repository is a technical showcase and evidence surface. The production core is private and is **not** published here.
 
+## Try the reliability idea in 30 seconds
+
+The independently MIT-licensed [Receipt Replay Simulator](./demos/receipt-replay-simulator/) demonstrates a small but important rule for agent execution: **an interruption is not proof that an external action failed**.
+
+```bash
+git clone https://github.com/paper-daemon/AgentLink.git
+cd AgentLink/demos/receipt-replay-simulator
+python3 demo.py
+python3 -m unittest -v
+```
+
+No external services, credentials, or third-party Python packages are required.
+
+If reliable long-running agents, idempotent tool use, or recovery after interrupted side effects are problems you care about, **star the repository** to follow the public experiments and releases. Contributions and failure cases are also welcome on the explicitly licensed public surfaces.
+
 ## Why AgentLink exists
 
 Models are increasingly capable planners and tool users. Operational work still becomes fragile when it crosses sessions, devices, services, browser state, approvals, network failures, and long-running worker handoffs.
