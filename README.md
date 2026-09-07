@@ -25,6 +25,12 @@ No external services, credentials, or third-party Python packages are required.
 
 If reliable long-running agents, idempotent tool use, or recovery after interrupted side effects are problems you care about, **star the repository** to follow the public experiments and releases. Contributions and failure cases are also welcome on the explicitly licensed public surfaces.
 
+### Public milestone
+
+- **[Receipt Replay Simulator v0.1.0](https://github.com/paper-daemon/AgentLink/releases/tag/receipt-replay-simulator-v0.1.0)** is the first scoped public release.
+- An external contributor fork produced **[PR #20](https://github.com/paper-daemon/AgentLink/pull/20)**, which was validated and merged into `main`.
+- More narrowly scoped work is available through the [`good first issue`](https://github.com/paper-daemon/AgentLink/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22) queue.
+
 ## Why AgentLink exists
 
 Models are increasingly capable planners and tool users. Operational work still becomes fragile when it crosses sessions, devices, services, browser state, approvals, network failures, and long-running worker handoffs.
