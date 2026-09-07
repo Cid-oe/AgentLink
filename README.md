@@ -15,7 +15,9 @@ The production AgentLink core is private. This public repository contains bounde
 
 ## Try the flagship continuity demo
 
-The MIT-licensed **[Chat Long-Turn Continuity Demo](./demos/chat-long-turn-continuity/)** shows the core idea directly:
+**[▶ Try the no-install browser demo](https://paper-daemon.github.io/agentlink-continuity/)** — start a chat job, interrupt it after an effect, reload the page, and resume from durable browser state without replaying the effect.
+
+The independently MIT-licensed **[Chat Long-Turn Continuity Demo](./demos/chat-long-turn-continuity/)** provides the reproducible Python version:
 
 ```bash
 git clone https://github.com/paper-daemon/AgentLink.git
