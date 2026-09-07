@@ -2,15 +2,16 @@
 
 Thanks for taking the time to inspect or improve the public AgentLink repository.
 
-AgentLink uses a deliberately mixed publication model: the production execution core remains private, while selected demos, tools, tests, architecture notes, and reproducible proofs are published here so reliability ideas can be inspected and improved safely.
+AgentLink uses a deliberately mixed publication model: the production execution core remains private, while selected demos, tools, tests, architecture notes, and reproducible proofs are published so chat continuity, reliability, and execution contracts can be inspected and improved safely.
 
 ## What is currently open for code contributions
 
-The clearest independently licensed contribution surface is:
+The clearest independently licensed contribution surfaces are:
 
-- `demos/receipt-replay-simulator/` — MIT licensed in that directory
+- `demos/chat-long-turn-continuity/` — MIT licensed in that directory; the flagship public demo for durable chat-native continuation across physical turns
+- `demos/receipt-replay-simulator/` — MIT licensed in that directory; a focused reliability primitive for conservative recovery after interrupted side effects
 
-Its local `CONTRIBUTING.md` contains run/test instructions and contribution guidance.
+The Receipt Replay Simulator has its own local `CONTRIBUTING.md`. For the Chat Long-Turn Continuity Demo, start with its README and the open issues explicitly scoped to that directory.
 
 Other public directories may have their own license or scope statement. Do not assume that the repository root or unpublished AgentLink production core is licensed merely because a public file is visible.
 
@@ -20,12 +21,13 @@ If an issue explicitly invites a contribution, follow the license and scope stat
 
 Useful contributions include:
 
+- deterministic chat-turn continuation and worker-handoff scenarios
 - deterministic failure/recovery scenarios
 - stronger idempotency and reconciliation tests
 - portability improvements to independently licensed public demos
 - reproducible bug reports
 - narrow documentation corrections
-- tests that make reliability invariants harder to regress
+- tests that make continuity and reliability invariants harder to regress
 
 Prefer one focused change with a clear verification path over a large speculative rewrite.
 
@@ -38,13 +40,16 @@ Prefer one focused change with a clear verification path over a large speculativ
 5. Explain what changed, why it is useful, and how it was verified.
 6. If AI assistance was materially used, it is fine to say so; the contributor remains responsible for the submitted code and test claims.
 
-## Reliability rules to preserve
+## Continuity and reliability rules to preserve
 
 Several public examples intentionally model conservative execution behavior. Contributions should not weaken these rules without a strong, explicit reason and regression evidence:
 
+- durable operational state is the source of truth across physical chat/process turns
+- completed work is not restarted merely because conversational context disappeared
 - an interruption or timeout is not automatically proof of failure
 - an uncertain external effect is reconciled rather than blindly replayed
 - a recorded completed effect is not repeated
+- worker handoff should resume pending work instead of duplicating completed work
 - a positive authentication boundary is not bypassed by credential guessing
 - cooldowns and other positive abstention boundaries are respected
 
@@ -53,13 +58,13 @@ Several public examples intentionally model conservative execution behavior. Con
 Maintainer review focuses on:
 
 - reproducibility
-- correctness of the reliability contract
+- correctness of the continuity/reliability contract
 - tests and failure cases
 - privacy/security boundaries
 - license/scope clarity
 - whether claims are supported by executable evidence
 
-A passing test suite is evidence for the behavior it exercises, not a claim that a toy demo has production-grade reliability.
+A passing test suite is evidence for the behavior it exercises, not a claim that a public simulator is the production AgentLink runtime.
 
 ## Security-sensitive findings
 
@@ -67,4 +72,4 @@ Do not put secrets, exploit-enabling private infrastructure details, or confiden
 
 ## Production core
 
-The unpublished AgentLink production core is not part of the public contribution surface. Public examples may illustrate related concepts, but contributors should not infer private implementation details or attempt to reconstruct them from confidential information.
+The unpublished AgentLink production core is not part of the public contribution surface. Public examples may illustrate related contracts, but contributors should not infer private implementation details or attempt to reconstruct them from confidential information.
